@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOFs Demo</title>
+</head>
+<body>
+<h1>(Hey, the good stuff is in the console.)</h1>
+<script>
+​
+// Last update: 8 Feb 2021
+​
+/**********************************************************
+ * Different ways to loop over an array
+ **********************************************************/
+​
+// let numbers = [1, 3, 5, 7];
+​
+// // "old-fashioned" way
+// for (let num of numbers) {
+//     console.log('a', num);
+// }
+​
+// // forEach() and "classic" function
+// numbers.forEach(function (num) {
+//     console.log('b', num);
+// });
+​
+// // forEach() and arrow function
+// numbers.forEach(num => console.log('c', num));
+​
+​
+​
+/**********************************************************
+ * Let's write our own forEach() from scratch
+ **********************************************************/
+​
+// let numbers = [1, 3, 5, 7, 9];
+​
+// // Compute the sum...
+​
+// // ...using JS's forEach()
+// let sum = 0;
+// numbers.forEach(num => sum += num);
+// console.log('JS sum:', sum);
+​
+// // ...using myForEach()
+// function myForEach(arr, cb) {
+//     for (let elem of arr) {
+//         cb(elem);
+//     }
+// }
+​
+// sum = 0;
+// myForEach(numbers, num => sum += num);
+// console.log('my sum:', sum);
+​
+​
+​
+/**********************************************************
+ * map()
+ **********************************************************/
+​
+// // Multiply numbers by 10
+// let numbers = [1, 2, 3, 4];
+// let multBy10 = numbers.map(function (num) {
+//     return num * 10;
+// });
+// console.log(multBy10);
+​
+​
+// const people = [
+//     { name: 'Juan', age: 25 },
+//     { name: 'Sylvia', age: 30 },
+//     { name: 'Maria', age: 33 }
+// ];
+​
+// // Make a sentence with each person's name and age
+// let sentences = people.map(p => `${p.name} is ${p.age} years old`);
+// console.log(sentences);
+​
+// // Make HTML list items (<li>) from the names
+// let htmlNames = people.map(p => `<li>${p.name}</li>`);
+// console.log(htmlNames);
+​
+​
+​
+/**********************************************************
+ * Let's write our own map() from scratch
+ **********************************************************/
+​
+// function myMap(arr, callback) {
+//     let newArr = [];
+//     for (let elem of arr) {
+//         let value = callback(elem);
+//         newArr.push(value);
+//     }
+​
+//     return newArr;
+// }
+​
+// // Multiply numbers by 10
+// console.log( myMap(numbers, n => n * 10) );
+​
+// // Make HTML list items
+// console.log( myMap(people, p => `<li>${p.name}</li>`) );
+​
+​
+​
+/**********************************************************
+ * filter()
+ **********************************************************/
+​
+// let numbers2 = [5, 15, 7, 35];
+​
+// // Return numbers greater than 10
+// let gt10 = numbers2.filter(num => num > 10);
+// console.log(gt10);
+​
+// // Return numbers whose value is equal to the position in array
+// // (Just to demonstrate the second argument 'ix')
+​
+// // position:    0   1  2  3   4  5  6
+// let numbers3 = [1, 20, 2, 3, 12, 5, 9];
+​
+// let answer = numbers3.filter((num, ix) => num === ix);
+// console.log(answer);
+​
+​
+​
+/**********************************************************
+ * every()
+ **********************************************************/
+​
+// // Does every month end with 'ber'?
+// let months = ['September', 'October', 'November'];
+// let alltrue = months.every(m => m.endsWith('ber'));
+// console.log("All months end in 'ber'?", alltrue);
+​
+// // Is every number even?
+// let numbers4 = [1, 2, 3, 4, 5];
+// let allEven = numbers4.every(n => n % 2 === 0);
+// console.log('All numbers are even?', allEven);
+​
+​
+​
+/**********************************************************
+ * reduce()
+ **********************************************************/
+​
+// let numbers = [3, 2, 6, 1];
+​
+// // Calculate the sum the "old-fashioned" way
+// let sum = 0;
+// for (let num of numbers) {
+//     sum += num;
+// }
+// console.log('old-fashioned sum:', sum);
+​
+// // Calculate the sum with reduce()
+// sum = numbers.reduce((acc, num) => acc + num);
+// console.log('sum with reduce:', sum);
+​
+// // Calculate the total price
+// let items = [
+//     { name: 'lettuce', price: .75 },
+//     { name: 'Coke', price: 1.20 },
+//     { name: 'bread', price: .50 }
+// ];
+​
+// let total = items.reduce((acc, item) => acc + item.price, 0);
+// console.log('item total:', total);
+​
+​
+​
+</script>
+</body>
+</html>
